@@ -6,10 +6,10 @@ import requests
 from bs4 import BeautifulSoup
 
 
-username = "9585866826"
-password = "takeda3814MH!"
+username = "username"
+password = "password"
 
-login_url = "https://moodle.s.kyushu-u.ac.jp/login/index.php"
+login_url = "大学moodleのログインページのURL"
 
 # usernameとpasswordを入力してログインする
 def login_moodle(course_name):
@@ -43,7 +43,7 @@ def login_moodle(course_name):
     print("login success")
 
     # ログイン後のページのurlを取得する
-    driver.get("https://moodle.s.kyushu-u.ac.jp/my/courses.php")
+    driver.get("大学moodleのログイン後のホームのURL")
 
     time.sleep(2)
 
@@ -76,9 +76,11 @@ def login_moodle(course_name):
 # "木・3"のように曜日と時限を自動で生成して返す関数
 def get_course_name(day, period):
     day_dict = {"Mon": "月", "Tue": "火", "Wed": "水", "Thu": "木", "Fri": "金"}
+
+    #　大学の時間割に合わせて時限を設定する
     period_dict = {"08:40": "1", "10:30": "2", "13:00": "3", "14:50": "4", "16:40": "5"}
-    print(f"2023年度夏学期・{day_dict[day]}{period_dict[period]}")
-    return f"2023年度夏学期・{day_dict[day]}{period_dict[period]}"
+    print(f"****年度*学期・{day_dict[day]}{period_dict[period]}")
+    return f"****年度*学期・{day_dict[day]}{period_dict[period]}"
 
 
 def job():
